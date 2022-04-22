@@ -37,10 +37,16 @@ public class InnerFrame extends JFrame {
 		panel.add(pathsCombo);
 		
 		JButton button = new JButton("<html><font color=black size=4><b>" + _buttonText + "</b></html>");
-		button.setBounds(180, 70, 90, 30);
+		button.setBounds(235, 70, 90, 30);
 		button.setBackground(Colors.Buttons());
 		panel.setLayout(null);
 		panel.add(button);
+
+		JButton back = new JButton("<html><font color=black size=4><b>Back</b></html>");
+		back.setBounds(115, 70, 90, 30);
+		back.setBackground(Colors.Buttons());
+		panel.setLayout(null);
+		panel.add(back);
 		
 		this.setVisible(true);
 		this.add(panel);
@@ -63,6 +69,14 @@ public class InnerFrame extends JFrame {
                 if(_performedAction == 2){
                     Helper.Unlock(selected, Driver.paths);
                 }
+				Driver.refreshFrame();
+				dispose();
+			}	
+		});
+
+		back.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent ev) {	
+
 				Driver.refreshFrame();
 				dispose();
 			}	

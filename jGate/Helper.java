@@ -12,9 +12,14 @@ import java.util.Scanner;
 import javax.swing.JOptionPane;
 
 public class Helper {
-	
-	private static  File file = new File("paths.txt");
+
+	private static String userHomeDir = System.getProperty("user.home");
+	private static  File file = new File(userHomeDir + "\\paths.bin");
     private static String path  = file.getPath();
+
+	Helper() {
+		System.out.println(userHomeDir);
+	}
     
     public static ArrayList<Folder> generateArray(ArrayList<String> list) {
 		
