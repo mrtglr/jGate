@@ -63,6 +63,7 @@ public class InnerFrame extends JFrame {
                 if(_performedAction == 2){
                     Helper.Unlock(selected, Driver.paths);
                 }
+				Driver.refreshFrame();
 				dispose();
 			}	
 		});

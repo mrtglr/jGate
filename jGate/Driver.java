@@ -55,7 +55,7 @@ public class Driver extends JFrame {
 	    	table.setBounds(30, 40, 200, 300);
 	    	table.setFont(new Font("Arial", Font.BOLD, 12));
 	    }  
-	    
+
 	    TableColumnModel columnModel = table.getColumnModel();
 
         columnModel.getColumn(0).setPreferredWidth(80);
@@ -105,15 +105,14 @@ public class Driver extends JFrame {
 	        public void actionPerformed(ActionEvent e) {
 	        	
 	        	new InnerFrame("Delete folder", Helper.listToArray(paths), "Delete", 0);
+				dispose();
 	        }
 	    }); files.add(deleteFile);
 	    
 	    JMenuItem refresh = new JMenuItem(new AbstractAction("Refresh") {
 	        public void actionPerformed(ActionEvent e) {
 	        	
-	        	getPaths();	        	
-				dispose();
-				new Driver();
+	        	refreshFrame();
 	        }
 	    }); files.add(refresh);
 	    
@@ -121,6 +120,7 @@ public class Driver extends JFrame {
 	        public void actionPerformed(ActionEvent e) {
 	        	
 	        	new InnerFrame("Lock folder", Helper.UnlockedsToArray(Driver.paths), "Lock", 1);
+				dispose();
 	        }
 	    }); locker.add(lockFile);
 	    
@@ -128,6 +128,7 @@ public class Driver extends JFrame {
 	        public void actionPerformed(ActionEvent e) {
 	        	
 	        	new InnerFrame("Unlock folder", Helper.LockedsToArray(Driver.paths), "Unlock", 2);
+				dispose();
 	        }
 	    }); locker.add(unlockFile);
 	    
@@ -139,9 +140,8 @@ public class Driver extends JFrame {
 	    dPaths = Helper.ListtoDArray(folders);
 	}
 
-	public static void refreshFrame(JFrame j) {
+	public static void refreshFrame() {
 		getPaths();	        	
-		j.dispose();
 		new Driver();
 	}
 		
